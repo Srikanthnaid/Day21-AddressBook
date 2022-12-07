@@ -31,23 +31,21 @@ public class AddressBook {
 		list.setPhoneNumber(s.next());
 		System.out.print("Enter E-Mail: ");
 		list.setEmail(s.next());
-		/* adding to arraylist */
-		contact.add(list);
-		/* print the arraylist */
-		contact.stream().forEach(a -> System.out.println(a));
-	}
-	
-	public void editContact() {
 		
+	}
+
+	public void editContact() {
+
 		System.out.print("Enter First Name:");
 		String editName = s.next();
 		boolean edited = false;
 		for (int i = 0; i < contact.size(); i++) {
 			String name = contact.get(i).getFirstName();
-			//Check name == editName.
+			// Check name == editName.
 			if (name.equalsIgnoreCase(editName)) {
 				System.out.println("Name is Match  \nnow Edit contact");
-				System.out.println("FirstName match  \n ckoose which one you want to change  \n Enter 1 to change firatName  \nEnter 2 to change LastName  \nEnter 3 to change address  \nEnter 4 to change city  \nEnter 5 to change state  \nEnter 6 to change ZipCode  \nEnter 7 to change MobNumber  \nEnter 8 to change E-Mail Address");
+				System.out.println(
+						"FirstName match  \n ckoose which one you want to change  \n Enter 1 to change firatName  \nEnter 2 to change LastName  \nEnter 3 to change address  \nEnter 4 to change city  \nEnter 5 to change state  \nEnter 6 to change ZipCode  \nEnter 7 to change MobNumber  \nEnter 8 to change E-Mail Address");
 				int input = s.nextInt();
 				switch (input) {
 				case 1:
@@ -83,7 +81,7 @@ public class AddressBook {
 					list.setEmail(s.next());
 					break;
 				}
-				
+
 				edited = true;
 				break;
 			}
@@ -91,28 +89,38 @@ public class AddressBook {
 		if (!edited) {
 			System.out.println("This name does not exist");
 		}
-		contact.stream().forEach(a->System.out.println(a));
+		contact.stream().forEach(a -> System.out.println(a));
 	}
-	// deleting contact from the addressbook
-		public void deleteContact() {
-			System.out.println("Enter the first name of person to edit contact");
-			String deleteName = s.next();
-			boolean deleted = false;
-			for (int i = 0; i < contact.size(); i++) {
-				String name = contact.get(i).getFirstName();
-				if (name.equalsIgnoreCase(deleteName)) {
-					System.out.println("ontact deleting Successfully!");
-					contact.remove(i);
-					deleted = true;
-					break;
-				}
-			}
-			if (!deleted) {
-				System.out.println("This name does not exist");
-			}
-			contact.stream().forEach(a->System.out.println(a));
-		}
 
+	// deleting contact from the addressbook
+	public void deleteContact() {
+		System.out.println("Enter the first name of person to edit contact");
+		String deleteName = s.next();
+		boolean deleted = false;
+		for (int i = 0; i < contact.size(); i++) {
+			String name = contact.get(i).getFirstName();
+			if (name.equalsIgnoreCase(deleteName)) {
+				System.out.println("contact deleting Successfully!");
+				contact.remove(i);
+				deleted = true;
+				break;
+			}
+		}
+		if (!deleted) {
+			System.out.println("This name does not exist");
+		}
+		contact.stream().forEach(a -> System.out.println(a));
+	}
+
+	// create method addmultiplecontacts.
+	public void addMultipleContact() {
+
+		//call the addcontact method
+		addContact();
+		/* adding to arraylist */
+		contact.add(list);
+		contact.stream().forEach(a -> System.out.println(a));
+	}
 
 	public static void main(String[] args) {
 		System.out.println("--------------Welcome to addressbook--------------");
@@ -121,16 +129,17 @@ public class AddressBook {
 		AddressBook book = new AddressBook();
 		while (true) {
 			System.out.println(
-					"Enter 1.to add new contact \nEnter 2.to editContacts  \nEnter 3.to DeleteContact \nEnter 4.to Exit");
+					"Enter 1.to add new contact \nEnter 2.to editContacts  \nEnter 3.to DeleteContact \nEnter 4.to addmultiplecontact  \nEnter5.to Exit");
 			int getUserInput = s.nextInt();
 			switch (getUserInput) {
 			case 1 -> book.addContact();
 			case 2 -> book.editContact();
 			case 3 -> book.deleteContact();
-			case 4 -> System.exit(0);
+			case 4 -> book.addMultipleContact();
+			case 5 -> System.exit(0);
 			default -> System.out.println("invalid input");
 			}
 		}
-	
+
 	}
 }
