@@ -12,12 +12,9 @@ public class AddressBook {
 	// addcontact method using to add the contact of addressbook
 	public void createContact() {
 		// here we create a object of contact-list class
-		ContactList list = new ContactList("Srikanth", "Naidu", "Alampur", "Hyderabad", "Telangana", 143, 63016630,
-				"ksru044@gmail.com");
-
+		ContactList list = new ContactList("Srikanth", "Naidu", "Alampur", "Hydhrabad", "Telangana", 123, "6301663090", "shivaprasady621@gmail.com");
 		/* adding contact to list */
 		contact.add(list);
-
 		// print the addressbook
 		contact.stream().forEach(a -> System.out.println(a));
 	}

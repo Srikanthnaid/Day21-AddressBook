@@ -7,13 +7,13 @@ public class ContactList {
 	private String city;
 	private String state;
 	private int zip_code;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String email;
 
 	/*
 	 * Parameterized constructor
 	 */
-	public ContactList(String fn, String ln, String add, String city, String state, int zip, int ph, String email) {
+	public ContactList(String fn, String ln, String add, String city, String state, int zip, String ph, String email) {
 		super();
 		this.firstName = fn;
 		this.lastName = ln;
@@ -76,11 +76,11 @@ public class ContactList {
 		this.zip_code = zip_code;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
