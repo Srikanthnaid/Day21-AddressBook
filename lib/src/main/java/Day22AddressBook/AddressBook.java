@@ -31,7 +31,8 @@ public class AddressBook {
 		list.setPhoneNumber(s.next());
 		System.out.print("Enter E-Mail: ");
 		list.setEmail(s.next());
-		
+		contact.add(list);
+
 	}
 
 	public void editContact() {
@@ -112,34 +113,38 @@ public class AddressBook {
 		contact.stream().forEach(a -> System.out.println(a));
 	}
 
-	// create method addmultiplecontacts.
-	public void addMultipleContact() {
-
-		//call the addcontact method
-		addContact();
-		/* adding to arraylist */
-		contact.add(list);
-		contact.stream().forEach(a -> System.out.println(a));
-	}
-
 	public static void main(String[] args) {
 		System.out.println("--------------Welcome to addressbook--------------");
 
 		// create a object of addressbook
 		AddressBook book = new AddressBook();
+		MultipleAddressBooks obj = new MultipleAddressBooks();
 		while (true) {
-			System.out.println(
-					"Enter 1.to add new contact \nEnter 2.to editContacts  \nEnter 3.to DeleteContact \nEnter 4.to addmultiplecontact  \nEnter5.to Exit");
-			int getUserInput = s.nextInt();
-			switch (getUserInput) {
-			case 1 -> book.addContact();
-			case 2 -> book.editContact();
-			case 3 -> book.deleteContact();
-			case 4 -> book.addMultipleContact();
-			case 5 -> System.exit(0);
-			default -> System.out.println("invalid input");
+			System.out.println("Enter \n 1. To add The new AddressBook\n 2. To add contact in AddressBook\n "
+					+ "3. To edit the contact in AddressBook\n 4. To delete the contact in AddressBook\n 5. To delete the AddressBook\n "
+					+ "6. To Print the AddressBook\n 7. To Print the contacts in AddressBook\n 0. to exit");
+			Scanner scanner = new Scanner(System.in);
+			int choice = scanner.nextInt();
+			switch (choice) {
+			case 1 -> obj.addAddressBook();
+
+			case 2 -> obj.addContact();
+
+			case 3 -> obj.editContactInBook();
+
+			case 4 -> obj.deleteContactInBook();
+
+			case 5 -> obj.deleteAddressBook();
+
+			case 6 -> obj.printBook();
+
+			case 7 -> obj.printContactsInBook();
+
+			case 0 -> System.exit(0);
+
+			default -> System.out.println("Enter the wrong input");
+
 			}
 		}
-
 	}
 }
