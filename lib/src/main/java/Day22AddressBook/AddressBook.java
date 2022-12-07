@@ -2,20 +2,40 @@ package Day22AddressBook;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class AddressBook {
-	// uc1 -> create addressbook
+	// uc2 -> Add contact to addressbook.
 
 	// create a array-list
 	List<ContactList> contact = new ArrayList<ContactList>();
 
-	// addcontact method using to add the contact of addressbook
-	public void createContact() {
-		// here we create a object of contact-list class
-		ContactList list = new ContactList("Srikanth", "Naidu", "Alampur", "Hydhrabad", "Telangana", 123, "6301663090", "shivaprasady621@gmail.com");
-		/* adding contact to list */
+	// create contactlist class object.
+	ContactList list = new ContactList();
+	// scanner class
+	static Scanner s = new Scanner(System.in);
+
+	public void addContact() {
+
+		System.out.print("Enter first name: ");
+		list.setFirstName(s.next());
+		System.out.print("Enter last name: ");
+		list.setLastName(s.next());
+		System.out.print("Enter address: ");
+		list.setAddress(s.next());
+		System.out.print("Enter city: ");
+		list.setCity(s.next());
+		System.out.print("Enter state: ");
+		list.setState(s.next());
+		System.out.print("Enter zip: ");
+		list.setZip(s.nextInt());
+		System.out.print("Enter phone number: ");
+		list.setPhoneNumber(s.next());
+		System.out.print("Enter E-Mail: ");
+		list.setEmail(s.next());
+		/* adding to arraylist */
 		contact.add(list);
-		// print the addressbook
+		/* print the arraylist */
 		contact.stream().forEach(a -> System.out.println(a));
 	}
 
@@ -24,6 +44,6 @@ public class AddressBook {
 
 		// create a object of addressbook
 		AddressBook book = new AddressBook();
-		book.createContact();
+		book.addContact();
 	}
 }

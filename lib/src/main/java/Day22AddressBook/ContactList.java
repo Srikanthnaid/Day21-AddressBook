@@ -6,9 +6,14 @@ public class ContactList {
 	private String address;
 	private String city;
 	private String state;
-	private int zip_code;
+	private int zip;
 	private String phoneNumber;
 	private String email;
+	
+	/*default constructor.*/
+	ContactList(){
+		
+	}
 
 	/*
 	 * Parameterized constructor
@@ -20,7 +25,7 @@ public class ContactList {
 		this.address = add;
 		this.city = city;
 		this.state = state;
-		this.zip_code = zip;
+		this.zip = zip;
 		this.phoneNumber = ph;
 		this.email = email;
 	}
@@ -68,12 +73,12 @@ public class ContactList {
 		this.state = state;
 	}
 
-	public int getZip_Code() {
-		return zip_code;
+	public int getZip() {
+		return zip;
 	}
 
-	public void setZip_Code(int zip_code) {
-		this.zip_code = zip_code;
+	public void setZip(int zip_code) {
+		this.zip = zip_code;
 	}
 
 	public String getPhoneNumber() {
@@ -97,6 +102,6 @@ public class ContactList {
 	 */
 	public String toString() {
 		return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
-				+ ", state=" + state + ", zip=" + zip_code + ", phone=" + phoneNumber + ", email=" + email + "]";
+				+ ", state=" + state + ", zip=" + zip + ", phone=" + phoneNumber + ", email=" + email + "]";
 	}
 }
