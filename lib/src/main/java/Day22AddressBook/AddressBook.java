@@ -6,10 +6,8 @@ import java.util.Scanner;
 
 public class AddressBook {
 	// uc2 -> Add contact to addressbook.
-
 	// create a array-list
 	List<ContactList> contact = new ArrayList<ContactList>();
-
 	// create contactlist class object.
 	ContactList list = new ContactList();
 	// scanner class
