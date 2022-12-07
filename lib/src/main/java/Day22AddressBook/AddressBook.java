@@ -36,13 +36,12 @@ public class AddressBook {
 		/* print the arraylist */
 		contact.stream().forEach(a -> System.out.println(a));
 	}
-	//create a method to edit a existing contact.
+	
 	public void editContact() {
 		
 		System.out.print("Enter First Name:");
 		String editName = s.next();
 		boolean edited = false;
-		
 		for (int i = 0; i < contact.size(); i++) {
 			String name = contact.get(i).getFirstName();
 			//Check name == editName.
@@ -94,13 +93,44 @@ public class AddressBook {
 		}
 		contact.stream().forEach(a->System.out.println(a));
 	}
+	// deleting contact from the addressbook
+		public void deleteContact() {
+			System.out.println("Enter the first name of person to edit contact");
+			String deleteName = s.next();
+			boolean deleted = false;
+			for (int i = 0; i < contact.size(); i++) {
+				String name = contact.get(i).getFirstName();
+				if (name.equalsIgnoreCase(deleteName)) {
+					System.out.println("ontact deleting Successfully!");
+					contact.remove(i);
+					deleted = true;
+					break;
+				}
+			}
+			if (!deleted) {
+				System.out.println("This name does not exist");
+			}
+			contact.stream().forEach(a->System.out.println(a));
+		}
+
 
 	public static void main(String[] args) {
 		System.out.println("--------------Welcome to addressbook--------------");
 
 		// create a object of addressbook
 		AddressBook book = new AddressBook();
-		book.addContact();//call add contact method
-		book.editContact();//call edit contact method to edit a contact in addressbook.
+		while (true) {
+			System.out.println(
+					"Enter 1.to add new contact \nEnter 2.to editContacts  \nEnter 3.to DeleteContact \nEnter 4.to Exit");
+			int getUserInput = s.nextInt();
+			switch (getUserInput) {
+			case 1 -> book.addContact();
+			case 2 -> book.editContact();
+			case 3 -> book.deleteContact();
+			case 4 -> System.exit(0);
+			default -> System.out.println("invalid input");
+			}
+		}
+	
 	}
 }
